@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>Postgres-Sample</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Board ID" id="input" />
+    <button id="btn">search</button>
+    <pre>
+        <code id="code">
+
+        </code>
+    </pre>
+
+    <script>
+      const input = document.getElementById("input");
+      const btn = document.getElementById("btn");
+      const code = document.getElementById("code");
+      btn.addEventListener("click", async () => {
+        code.innerText = "loading...";
+        const res = await fetch(
+          `/getsql?search=${encodeURIComponent(input.value)}`
+        );
+        const data = await res.json();
+        code.innerText = "\n" + JSON.stringify(res.json(), null, 4);
+      });
+    </script>
+  </body>
+</html>
