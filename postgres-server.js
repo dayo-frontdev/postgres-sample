@@ -19,15 +19,10 @@ const init = async () => {
     const client = await pool.connect();
     const [commentRes, boardRes] = await Promise.all([
       client.query(
-        `
-                SELECT * FROM comments NATURAL LEFT JOIN rich_content WHERE board_id = $1
-                `,
+        " SELECT * FROM comments NATURAL LEFT JOIN rich_content WHERE board_id = $1",
         [req.query.search]
       ),
-      client.query(
-        `
-                SELECT * FROM boards WHERE board_id = 1$
-                `,
+      client.query("SELECT * FROM boards WHERE board_id = $1",
         [req.query.search]
       ),
     ]);
