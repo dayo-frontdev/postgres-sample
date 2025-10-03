@@ -6,7 +6,7 @@
     <title>Postgres-Sample</title>
   </head>
   <body>
-    <input placeholder="Board ID" id="input" />
+    <input type ="text" placeholder="Board ID" id="input" />
     <button id="btn">search</button>
     <pre>
         <code id="code">
@@ -21,7 +21,7 @@
       btn.addEventListener("click", async () => {
         code.innerText = "loading...";
         const res = await fetch(
-          `/postgres/getsql?search=${encodeURIComponent(input.value)}`
+          "/postgres/getsql?search=" + encodeURIComponent(input.value)
         );
         const data = await res.json();
         code.innerText = "\n" + JSON.stringify(res.json(), null, 4);
