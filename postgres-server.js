@@ -14,7 +14,7 @@ const pool = new Pool({
 });
 
 const init = async () => {
-  app.get("/getsql", async (req, res) => {
+  app.get("/postgres/getsql", async (req, res) => {
     const client = await pool.connect();
     const [commentRes, boardRes] = await Promise.all([
       client.query(
