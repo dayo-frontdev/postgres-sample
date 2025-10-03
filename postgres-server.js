@@ -22,13 +22,13 @@ const init = async () => {
         `
                 SELECT * FROM comments NATURAL LEFT JOIN rich_content WHERE board_id = $1
                 `,
-        [res.query.search]
+        [req.query.search]
       ),
       client.query(
         `
                 SELECT * FROM boards WHERE board_id = 1$
                 `,
-        [res.query.search]
+        [req.query.search]
       ),
     ]);
     res.json({
