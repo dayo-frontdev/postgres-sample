@@ -24,7 +24,7 @@
           "/postgres/getsql?search=" + encodeURIComponent(input.value)
         );
         const data = await res.json();
-        code.innerText = "\n" + JSON.stringify(data.json(), null, 4);
+        code.innerText = "\n" + JSON.stringify(data, null, 4);
       });
     </script>
   </body>
