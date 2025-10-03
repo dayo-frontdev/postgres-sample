@@ -4,8 +4,6 @@ const { Pool } = require("pg");
 
 app.use(express.json());
 
-app.use("/postgres", require("./routes/postgres"));
-
  app.use((req, res, next) => {
   console.log("PATH:", req.path);
   next();
