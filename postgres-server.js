@@ -5,6 +5,12 @@ const { Pool } = require("pg");
 app.use(express.json());
 
 app.use("/postgres", require("./routes/postgres"));
+
+ app.use((req, res, next) => {
+  console.log("PATH:", req.path);
+  next();
+});
+
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });
@@ -37,6 +43,7 @@ const init = async () => {
 
   app.listen(5000);
 
+ 
   console.log(" server listening on post 5000");
 };
 
