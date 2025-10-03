@@ -21,7 +21,7 @@
       btn.addEventListener("click", async () => {
         code.innerText = "loading...";
         const res = await fetch(
-          `/getsql?search=${encodeURIComponent(input.value)}`
+          `/postgres/getsql?search=${encodeURIComponent(input.value)}`
         );
         const data = await res.json();
         code.innerText = "\n" + JSON.stringify(res.json(), null, 4);
