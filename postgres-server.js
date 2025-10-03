@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const { Pool } = require("pg");
 
+app.use("/postgres", require("./routes/postgres"));
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
 });
