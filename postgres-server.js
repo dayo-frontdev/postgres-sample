@@ -27,7 +27,7 @@ const init = async () => {
       ),
     ]);
     res.json({
-      status: success,
+      status: "success",
       board: boardRes.rows[0] || {},
       posts: commentRes.rows,
     });
